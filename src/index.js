@@ -1,6 +1,8 @@
-import Phaser from 'phaser';
-import Preloader from './preloader';
-import Game from './game';
+import Phaser from 'phaser'
+import ClockPlugin from 'phaser3-rex-plugins/plugins/clock-plugin.js'
+
+import Preloader from './preloader'
+import Game from './game'
 
 
 const config = {
@@ -15,7 +17,16 @@ const config = {
             debug: true
         }
     },
+    plugins: {
+        global: [{
+            key: 'rexClock',
+            plugin: ClockPlugin,
+            start: true
+        }]
+    },
     scene: [Preloader, Game]
 };
 
-const game = new Phaser.Game(config);
+let  game = new Phaser.Game(config);
+
+export default module = game
