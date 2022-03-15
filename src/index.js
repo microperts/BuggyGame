@@ -3,12 +3,15 @@ import ClockPlugin from 'phaser3-rex-plugins/plugins/clock-plugin.js'
 
 import Preloader from './preloader'
 import Game from './game'
-
+import SizeHandler from './sizeHandler';
 
 const config = {
     type: Phaser.AUTO,
+    scale: {
+        mode: Phaser.Scale.FIT,  
+    },
     parent: 'phaser-example',
-    width: 800,
+    width: 900,
     height: 600,
     physics:{
         default: 'matter',
@@ -24,7 +27,7 @@ const config = {
             start: true
         }]
     },
-    scene: [Preloader, Game]
+    scene:[SizeHandler,Preloader, Game]
 };
 
 let  game = new Phaser.Game(config);
